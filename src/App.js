@@ -1,8 +1,6 @@
 
 import React, { Component } from "react";
 import URLSearchParams from "url-search-params";
-import Tip from './Tip';
-
 import {
   PdfLoader,
   PdfHighlighter,
@@ -11,6 +9,7 @@ import {
   AreaHighlight
 } from "react-pdf-highlighter";
 
+import Tip from './Tip'; // had to override the original Tip
 import testHighlights from "./test-highlights";
 
 const getNextId = () => String(Math.random()).slice(2);
@@ -25,7 +24,7 @@ const resetHash = () => {
 const HighlightPopup = ({ comment }) =>
   comment.text ? (
     <div className="Highlight__popup">
-      {comment.emoji} {comment.text}
+      {comment.text}
     </div>
   ) : null;
 
@@ -116,7 +115,6 @@ class App extends Component {
                 onScrollChange={resetHash}
                 scrollRef={scrollTo => {
                   this.scrollViewerTo = scrollTo;
-
                   this.scrollToHighlightFromHash();
                 }}
                 onSelectionFinished={(
