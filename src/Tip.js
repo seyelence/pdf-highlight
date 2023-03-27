@@ -4,7 +4,6 @@ export class Tip extends Component {
   state = {
     compact: true,
     text: "",
-    emoji: ""
   }
 
   // for TipContainer
@@ -18,7 +17,7 @@ export class Tip extends Component {
 
   render() {
     const { onConfirm, onOpen } = this.props
-    const { compact, text, emoji } = this.state
+    const { compact, text} = this.state
 
     return (
       <div className="Tip">
@@ -37,7 +36,7 @@ export class Tip extends Component {
             className="Tip__card"
             onSubmit={event => {
               event.preventDefault()
-              onConfirm({ text, emoji })
+              onConfirm({text})
             }}
           >
             <div>
